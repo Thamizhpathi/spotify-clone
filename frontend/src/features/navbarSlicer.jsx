@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState={
     shownavbar:true,
-    mobileScreen:false
+    mobileScreen:false,
+    dropDown:false
 
 
 }
@@ -16,9 +17,12 @@ const navslice=createSlice({
         },
         setMobileScreen(state,action){
             state.mobileScreen=action.payload
+        },
+        setdropDown(state){
+            state.dropDown=!state.dropDown
         }
 
     }
 })
-export const {setnav,setMobileScreen} =navslice.actions
+export const {setnav,setMobileScreen,setdropDown} =navslice.actions
 export default navslice.reducer

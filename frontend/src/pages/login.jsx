@@ -9,10 +9,11 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const inputvalues = useSelector((state) => state.login.value);
+  // const loggeduser=useSelector((state)=>state.login.loggedUser)
 
+ 
   const [errorMessage, setErrorMessage] = useState("");
   const [inputErrors, setInputErrors] = useState({}); // To store field validation errors
-
   const handleOnchange = (e) => {
     const { name, value } = e.target;
     dispatch(setvalue({ name, value }));
@@ -40,6 +41,8 @@ const Login = () => {
 
       if (response.status === 200) {
         dispatch(setLoggedUser(response.data.data));
+        localStorage.setItem("accessToken",response.data.data.accessToken)
+        localStorage.setItem('userdata',JSON.stringify(response.data.data.userData))
         dispatch(setisLogedin(true));
         navigate("/homepage");
       }

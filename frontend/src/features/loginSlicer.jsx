@@ -7,7 +7,7 @@ const initialState={
         "password":""
     },
     loggedUser:null,
-    isloggedin:false
+    isloggedin:false,
 }
 
 const loginSlicer=createSlice({

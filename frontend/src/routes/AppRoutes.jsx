@@ -4,6 +4,7 @@ import React from 'react'
 import Login from "../pages/login";
 import Home from "../pages/home";
 import SignUp from "../pages/signup";
+import Profile from "../pages/profile";
 
 const AppRoutes = () => {
   return (
@@ -15,6 +16,8 @@ const AppRoutes = () => {
     <Route path="/login"  element={<Login/>}/>
     <Route path="/homepage"  element={<Home/>}/>
     <Route path="/signup"  element={<SignUp/>}/>
+    
+    <Route path="/profile/:id?"  element={<Profile/>}/>
 </Routes>
   )
 }

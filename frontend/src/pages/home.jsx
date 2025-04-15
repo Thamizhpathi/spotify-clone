@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from 'react';
+// import { useSelector } from 'react-redux';
 
 const Home = () => {
   const [topTracks, setTopTracks] = useState([]);
+  // const loggeduser=useSelector((state)=>state.login.loggedUser)
+  // console.log("whologgedin",loggeduser.accessToken)
+
+  // localStorage.setItem("accessToken",loggeduser.accessToken)
+  // localStorage.setItem('username',loggeduser.checkUser.name)
+  // localStorage.setItem('email',loggeduser.checkUser.email)
+  // console.log("who",loggeduser.checkUser)
 
   const token = 'BQA1VTrTllRfiv3CjBBNMFSGuSskFZGbOTORgAft5sOV7QvneyUiTWb_L3y8yjCzqQLBDSazucWpdjxrWSD1he_uR4apODRK437iWnzq5o_pjwZ810jiEQ6DXjdl6zvntI-z5vkVViwy517m7VoKv_GrDLCXdiS2ZoH2cErbbZZBP1ShEIOUsURF2Ij5xVaXBPKjdpRCR16SBgxNskNdOeCVFAnRTJ_jEl4rUBUPFt_f2IbMjyDRWJS0JItuKjvbYDHZQHj0bDXVyItGP-jiGIm3qdXmJ0aJR_f1JLappepnhQJWvqPGhv8u6MUpoJPw';
 

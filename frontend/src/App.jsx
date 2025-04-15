@@ -1,16 +1,18 @@
 import { useDispatch } from "react-redux";
 import "./App.css";
 import Navbar from "./components/Navbar";
-
+// import { setLoggedUser } from "./features/loginSlicer";
 // import 'bootstrap/dist/css/bootstrap.css';
 
 import AppRoutes from "./routes/AppRoutes";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { setnav } from "./features/navbarSlicer";
+import { setisLogedin, setLoggedUser } from "./features/loginSlicer";
 function App() {
   const dispatch = useDispatch();
   const location = useLocation();
+  const navigate=useNavigate()
   //  const isnav = useSelector((state) => state.navbar.shownavbar);
   useEffect(() => {
     // Hide navbar on login page, show it on others
@@ -20,6 +22,18 @@ function App() {
       dispatch(setnav(true));
     }
   }, [location, dispatch]);
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+    const userData=JSON.parse(localStorage.getItem('userdata'))
+    if (token && userData) {
+      
+     dispatch( setisLogedin(true))
+     dispatch(setLoggedUser(userData))
+    //  console.log(userData)
+     navigate("/homepage")
+    }
+  }, []);
+
 
   return (
     <>

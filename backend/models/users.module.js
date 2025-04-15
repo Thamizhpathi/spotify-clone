@@ -16,6 +16,18 @@ const userSchema=mongoose.Schema({
     password:{
         type:String,
         required:true
+    },
+    date:{
+        type:Number
+    },
+    month:{
+        type:String
+    },
+    year:{
+        type:Number
+    },
+    gender:{
+        type:String
     }
 })
 const user=mongoose.model('user',userSchema)
