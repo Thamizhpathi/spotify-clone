@@ -14,7 +14,7 @@ const Profile = () => {
     ...userData,
   });
   const id = user._id;
-  //   console.log(user.day)
+
 
   const navigate = useNavigate();
 
@@ -105,7 +105,7 @@ const Profile = () => {
           <MdOutlineExpandLess
             size={70}
             className="text-white p-4 rounded-full bg-[#2a2a2a] rotate-[270deg] cursor-pointer"
-            onClick={() => setEditProfile(false)}
+            onClick={() => {setEditProfile(false);navigate("/profile")}}
           />
           <h1 className="text-5xl font-bold m-12 ml-1">Edit Profile</h1>
 

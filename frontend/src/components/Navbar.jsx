@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AiFillSpotify } from "react-icons/ai";
@@ -21,25 +21,26 @@ const Navbar = () => {
   let profile = "";
 
   if (loggeduser) {
-    profile = loggeduser.name[0];
+    // console.log(loggeduser)
+    profile = loggeduser.name[0]
     
   }
-  useEffect(() => {
-    // Prevent the user from going back to the previous page
-    const preventBackNavigation = (event) => {
-      event.preventDefault();
-      event.returnValue = ""; // Standard for Chrome, Firefox, etc.
-      navigate("/login"); // Forcefully navigate to the login page if back is pressed
-    };
+  // useEffect(() => {
+  //   // Prevent the user from going back to the previous page
+  //   const preventBackNavigation = (event) => {
+  //     event.preventDefault();
+  //     event.returnValue = ""; // Standard for Chrome, Firefox, etc.
+  //     navigate("/login"); // Forcefully navigate to the login page if back is pressed
+  //   };
 
-    // Add event listener for the beforeunload event (for browsers like Chrome)
-    window.addEventListener("popstate", preventBackNavigation);
+  //   // Add event listener for the beforeunload event (for browsers like Chrome)
+  //   window.addEventListener("popstate", preventBackNavigation);
 
-    return () => {
-      // Cleanup event listener when the component is unmounted
-      window.removeEventListener("popstate", preventBackNavigation);
-    };
-  }, [navigate]);
+  //   return () => {
+  //     // Cleanup event listener when the component is unmounted
+  //     window.removeEventListener("popstate", preventBackNavigation);
+  //   };
+  // }, [navigate]);
  
   const links = [
     {
@@ -63,7 +64,7 @@ const Navbar = () => {
     });
 
     links.push({
-      label: profile,
+      label:  profile.toUpperCase(),
 
       type: " relative rounded-full py-3 px-5  bg-red-200 text-black cursor-pointer ",
       onClick: () => {

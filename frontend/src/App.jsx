@@ -6,13 +6,14 @@ import Navbar from "./components/Navbar";
 
 import AppRoutes from "./routes/AppRoutes";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { setnav } from "./features/navbarSlicer";
 import { setisLogedin, setLoggedUser } from "./features/loginSlicer";
 function App() {
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate=useNavigate()
+ 
   //  const isnav = useSelector((state) => state.navbar.shownavbar);
   useEffect(() => {
     // Hide navbar on login page, show it on others
@@ -30,9 +31,11 @@ function App() {
      dispatch( setisLogedin(true))
      dispatch(setLoggedUser(userData))
     //  console.log(userData)
-     navigate("/homepage")
+    if (location.pathname === "/" || location.pathname === "/login") {
+      navigate("/homepage", { replace: true });
     }
-  }, []);
+    }
+  }, [navigate]);
 
 
   return (

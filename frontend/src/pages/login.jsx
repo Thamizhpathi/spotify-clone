@@ -40,10 +40,12 @@ const Login = () => {
       });
 
       if (response.status === 200) {
-        dispatch(setLoggedUser(response.data.data));
+        dispatch(setisLogedin(true));
+        dispatch(setLoggedUser(response.data.data.userData));
+        // console.log(use)
         localStorage.setItem("accessToken",response.data.data.accessToken)
         localStorage.setItem('userdata',JSON.stringify(response.data.data.userData))
-        dispatch(setisLogedin(true));
+        
         navigate("/homepage");
       }
     } catch (error) {
