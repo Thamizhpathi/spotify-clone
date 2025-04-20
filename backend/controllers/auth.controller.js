@@ -12,6 +12,7 @@ export const signup = async (req, res, next) => {
       throw error;
     }
     const salt = await bcrypt.genSalt(10);
+    // console.log(salt)
     const hashedPassword = await bcrypt.hash(password, salt);
     const newUser = await user.create([
       { name, email, password: hashedPassword },
@@ -19,7 +20,7 @@ export const signup = async (req, res, next) => {
     const accessToken = jwt.sign({ userId: newUser._id }, JWT_SECRET, {
       expiresIn: JWT_EXPIRES_IN,
     });
-    console.log(token);
+    console.log(accessToken);
 
     res.status(201).json({
       success: true,
@@ -34,6 +35,8 @@ export const signup = async (req, res, next) => {
     console.log(error);
   }
 };
+
+
 export const signin = async (req, res, next) => {
   try {
     const { email, password } = req.body;

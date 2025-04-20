@@ -206,7 +206,7 @@ const Home = () => {
           )}
         </div>
      
-        <div className=" h-[600px] scrollbar-hide bg-custom-gray rounded-lg ">
+        <div className=" h-[600px] overflow-x-auto scrollbar-hide bg-custom-gray rounded-lg ">
           {loading ? (
             <p>Loading...</p>
           ) : (
@@ -214,7 +214,7 @@ const Home = () => {
             <>
               <h1 className="text-2xl font-bold ml-5">Artist</h1>
 
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 overflow-x-auto scrollbar-hide px-">
                 {allData.map((entry, index) => (
                   <div
                     key={index}
